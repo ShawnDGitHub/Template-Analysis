@@ -8,12 +8,14 @@
 <body>
   <div>Open your console to see the output.</div>
   <div>Edit the template in index.html</div>
+  <div id="root"></div>
 </body>
 <script type="module">
   import { html } from './template.js'
+  const root = document.getElementById('root')
   // edit this template
   const stringTemplate = `
-    <div class="parent-element" id="TAG">
+    <div class="parent-element">
       <h1 class="title">TITLE</h1>
       <div style="display: flex;">
         <i class="italic">Italic</i>
@@ -23,5 +25,6 @@
   `
   const realDOM = html(stringTemplate)    
   console.log("realDOM:", realDOM)
+  root.appendChild(realDOM)
 </script>
 </html>
