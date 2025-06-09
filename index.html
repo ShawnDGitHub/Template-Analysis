@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test page</title>
+</head>
+<body>
+  <div>Open your console to see the output.</div>
+  <div>Edit the template in index.html</div>
+</body>
+<script type="module">
+  import { html } from './template.js'
+  // edit this template
+  const stringTemplate = `
+    <div class="parent-element" id="TAG">
+      <h1 class="title">TITLE</h1>
+      <div style="display: flex;">
+        <i class="italic">Italic</i>
+        <i class="italic">Text</i>
+      </div>
+    </div>
+  `
+  const realDOM = html(stringTemplate)    
+  console.log("realDOM:", realDOM)
+</script>
+</html>
