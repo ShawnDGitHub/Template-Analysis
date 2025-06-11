@@ -60,7 +60,6 @@ function astCT (s, e, a, av, it) {
 } // astCT
 /** */
 function toHTML (units) {
-  // 括号匹配问题
   const ms = new Stack();
   const [element] = match(units, ms);
   return element;

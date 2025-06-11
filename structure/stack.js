@@ -2,7 +2,7 @@ export default class Stack {
   constructor() {
     this._a = null;
     this._STACK_INIT_SIZE = 0;
-    this._STACKINCREMENT = 1;
+    this._STACK_INCREMENT = 1;
     this._struct = {};
     this.InitStack();
   }
@@ -22,36 +22,34 @@ export default class Stack {
   set top(value) {
     this._struct.top = value;
   }
-  get stacksize() {
-    return this._struct.stacksize;
+  get stackSize() {
+    return this._struct.stackSize;
   }
-  set stacksize(value) {
-    this._struct.stacksize = value;
+  set stackSize(value) {
+    this._struct.stackSize = value;
   }
   get length() {
     return this.StackLength();
   }
-  /**构造空栈 */
   InitStack() {
     this._a = [];
-    this.base = null; // base 是栈底
+    this.base = null; // base is the stack bottom
     this.top = null;
-    this.stacksize = this._STACK_INIT_SIZE;
+    this.stackSize = this._STACK_INIT_SIZE;
     return;
   }
-  DestroyStack() { } // DestroyStack
   ClearStack() {
     this._a = [];
     this.base = null;
     this.top = this.base;
-    this.stacksize = 0;
+    this.stackSize = 0;
   } // ClearStack
   StackEmpty() {
     return this.top === this.base
       && this._a.length === 0
   } // StackEmpty
   StackLength() {
-    return this.stacksize;
+    return this.stackSize;
   } // StackLength
   /**
    * @return The stack's top value. */
@@ -63,18 +61,18 @@ export default class Stack {
     if (this.StackEmpty()) this.base = 0;
     this._a.push(value)
     this.top = this._a.length - 1;
-    this.stacksize += this._STACKINCREMENT;
+    this.stackSize += this._STACK_INCREMENT;
   } // Push
   Pop() {
     if (this.StackEmpty()) return false;
     this._a.pop();
-    if (this.stacksize !== 1) {
+    if (this.stackSize !== 1) {
       this.top = this._a.length - 1;
     } else {
       this.base = null
       this.top = null;
     }
-    this.stacksize -= this._STACKINCREMENT;
+    this.stackSize -= this._STACK_INCREMENT;
   } // Pop
   StackTraverse(callback) {
     let actionFlag = true;
@@ -84,5 +82,5 @@ export default class Stack {
       if (!actionFlag) break;
     }
     return actionFlag;
-  } // StackTravers
+  } // StackTraverse
 }
